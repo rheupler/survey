@@ -1,0 +1,9 @@
+<h2><%= @question.name %></h2>
+
+<form action="/questions/<%= %>/responses/new" method="post">
+  <input type="hidden" name="question_id" value="<%= @question.id %>">
+  <% @question.options.each do |option| %>
+  <input name="option" type="radio" value="<%= option.id %>"><%= option.name %>
+  <% end %>
+<button name="submit">Submit</button>
+</form>

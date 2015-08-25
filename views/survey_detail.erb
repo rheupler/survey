@@ -1,4 +1,4 @@
-<h2><%= @survey.name %></h2> <a href="/surveys/<%= @survey.id %>/edit">Edit</a>
+<h2><%= @survey.name %></h2> <a href="/surveys/<%= @survey.id %>/edit?ref=detail">Edit</a>
 
 
 <h2>Add a question</h2>
@@ -12,6 +12,7 @@
 
 </form>
 <br>
+<a href="/questions/<%= @survey.questions.first.id %>/responses/new" class="btn btn-success">Take Survey</a>
 
 <table class="table table-hover">
   <tr>

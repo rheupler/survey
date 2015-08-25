@@ -1,0 +1,10 @@
+<h2>Edit <%= @option.name %></h2>
+<form action="/options/<%= @option.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div class="form-group">
+    <label for="option_name">Edit the name of your Question</label>
+    <input type="text" name="option_name" class="form-control" value="<%= @option.name %>">
+  </div>
+  <button name="submit">Submit changes</button>
+
+</form>

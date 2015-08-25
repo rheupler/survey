@@ -1,0 +1,41 @@
+<h2><%= @question.name %></h2> <a href="/questions/<%= @question.id %>/edit?ref=detail">Edit</a>
+
+<h2>Add options</h2>
+<form action="/options" method="post">
+  <input type="hidden" id="question_id" name="question_id" value="<%= @question.id %>">
+  <div class="form-group">
+    <label for="option_name">Enter your option</label>
+    <input type="text" name="option_name" class="form-control" placeholder="Option A, etc">
+  </div>
+  <button class="btn btn-info" name="submit">Create Option</button>
+
+</form>
+<br>
+
+<table class="table table-hover">
+  <tr>
+    <th>
+      Options
+    </th>
+    <th>
+    </th>
+  </tr>
+  <% @options.each do |option| %>
+  <tr>
+    <td>
+      <a href="/options/<%= option.id %>"><%= option.name %></a>
+    </td>
+    <td>
+      <a class="btn btn-sm btn-warning" href="/options/<%= option.id %>/edit?ref=options">Edit</a>
+    </td>
+    <td>
+      <form action="/options/<%= option.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit">Delete</button>
+      </form>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<a href="/surveys/<%= @question.survey.id %>">Back</a>
