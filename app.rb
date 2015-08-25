@@ -26,3 +26,11 @@ post('/surveys') do
   @surveys = Survey.all
   erb :surveys
 end
+
+delete ('/surveys/:id') do
+  id = params.fetch('id').to_i
+  survey = Survey.find(id)
+  survey.destroy
+  @surveys = Survey.all
+  erb(:surveys)
+end
