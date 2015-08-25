@@ -4,6 +4,7 @@ require('sinatra/activerecord')
 require('./lib/question')
 require('./lib/option')
 require('./lib/survey')
+require('./lib/response')
 require('./app')
 
 RSpec.configure do |config|
@@ -16,6 +17,9 @@ RSpec.configure do |config|
     end
     Survey.all() do |survey|
       survey.destroy()
+    end
+    Response.all() do |response|
+      response.destroy()
     end
   end
 end

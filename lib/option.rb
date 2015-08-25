@@ -1,3 +1,4 @@
 class Option < ActiveRecord::Base
   belongs_to(:question)
-end
+  has_many(:responses)
+  end
