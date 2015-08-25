@@ -14,5 +14,13 @@ describe(Response) do
       expect(test_response.question()).to eq(@test_question)
     end
   end
-  
+
+  describe("#option") do
+    it 'returns the option the response is to' do
+      test_option = Option.create({name: "name", question_id: @test_question.id})
+      test_response = Response.create({question_id: @test_question.id, option_id: test_option.id})
+      expect(test_response.option()).to eq(test_option)
+    end
+  end
+
 end
