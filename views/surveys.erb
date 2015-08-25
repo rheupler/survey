@@ -18,9 +18,12 @@
       <%= survey.questions.length %>
     </td>
     <td>
+      <a class="btn btn-sm btn-warning" href="/surveys/<%= survey.id %>/edit">Edit</a>
+    </td>
+    <td>
       <form action="/surveys/<%= survey.id %>" method="post">
         <input type="hidden" name="_method" value="delete">
-        <button name="submit">Delete</button>
+        <button type="submit">Delete</button>
       </form>
     </td>
   </tr>

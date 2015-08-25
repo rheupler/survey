@@ -1,0 +1,42 @@
+<h2><%= @survey.name %></h2> <a href="/surveys/<%= @survey.id %>/edit">Edit</a>
+
+
+<h2>Add a question</h2>
+<form action="/questions" method="post">
+  <input type="hidden" id="survey_id" name="survey_id" value="<%= @survey.id %>">
+  <div class="form-group">
+    <label for="question_name">Enter your question</label>
+    <input type="text" name="question_name" class="form-control" placeholder="'What is your favorite color?, etc.'">
+  </div>
+  <button name="submit">Create Question</button>
+
+</form>
+<br>
+
+<table class="table table-hover">
+  <tr>
+    <th>
+      Questions
+    </th>
+    <th>
+      Question Type
+    </th>
+  </tr>
+  <% @questions.each do |question| %>
+  <tr>
+    <td>
+      <a href="/questions/<%= question.id %>"><%= question.name %></a>
+    </td>
+    <td>
+      Mulitple choice
+    </td>
+    <td>
+      <form action="/questions/<%= question.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" id="survey_id" name="survey_id" value="<%= @survey.id %>">
+        <button type="submit">Delete</button>
+      </form>
+    </td>
+  </tr>
+  <% end %>
+</table>
