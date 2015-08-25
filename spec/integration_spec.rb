@@ -10,3 +10,11 @@ describe('/', type: :feature) do
     expect(page).to have_content 'Survey Nexus'
   end
 end
+
+describe("/surveys", type: :feature) do
+  it 'displays the current surveys' do
+    visit '/'
+    click_link "Take a survey"
+    expect(page).to have_content("Here are the current surveys")
+  end
+end

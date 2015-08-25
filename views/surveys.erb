@@ -1,0 +1,22 @@
+<table class="table table-hover">
+  <tr>
+    <th>
+      Survey
+    </th>
+    <th>
+      No. of Questions
+    </th>
+  </tr>
+  <% @surveys.each do |survey| %>
+  <tr>
+    <td>
+      <a href="/surveys/<%= survey.id %>"><%= survey.name %></a>
+    </td>
+    <td>
+      <%= survey.questions.length %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<a href="/surveys/new">Add a Survey</a>
